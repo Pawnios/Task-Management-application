@@ -3,18 +3,17 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
    # Streamlit Interface
-   st.title("CSV Data Visualizer")
+st.title("CSV Data Visualizer")
 
    # File Upload
-   uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
-
-   if uploaded_file:
+uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
+if uploaded_file:
        # Read CSV into DataFrame
        df = pd.read_csv(uploaded_file)
        st.write("Data Preview:", df.head())
 
        # Select visualization type
-       chart_type = st.selectbox("Select visualization type", ["Histogram", "Bar Chart", "Pie Chart", "Line Diagram"])
+   chart_type = st.selectbox("Select visualization type", ["Histogram", "Bar Chart", "Pie Chart", "Line Diagram"])
 
        # Column selection based on the chart type
        if chart_type == "Histogram":
